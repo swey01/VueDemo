@@ -1,8 +1,6 @@
 <template>
   <div class="home">
     <home-header></home-header>
-    <home-swiper></home-swiper>
-    <div>e=e</div>
   </div>
 </template>
 

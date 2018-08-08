@@ -2,18 +2,20 @@
   <div class="home">
     <home-header></home-header>
     <home-swiper></home-swiper>
-    <div>e=e</div>
+    <home-icon></home-icon>
   </div>
 </template>
 
 <script>
 import HomeHeader from '../components/homeHeader.vue'
 import HomeSwiper from '../components/swiper.vue'
+import HomeIcon from '../components/homeIcon.vue'
 export default {
   name: 'home',
   components: {
     HomeHeader,
-    HomeSwiper
+    HomeSwiper,
+    HomeIcon
   }
 }
 </script>

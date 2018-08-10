@@ -1,16 +1,11 @@
 <template>
   <div class="icons">
-    <swiper>
-      <swiper-slide v-for="(page, index) of pages" :key="index" :options="swiperOption">
-        <div class="icon" v-for="item of page" :key="item.id">
-          <div class="icon-img">
-            <img :src="item.iconUrl" alt="图标">
-          </div>
-          <p class="icon-text">{{item.name}}</p>
-        </div>
-      </swiper-slide >
-      <div class="swiper-pagination"  slot="pagination"></div>
-    </swiper>
+    <div class="icon" v-for="item of iconList" :key="item.id">
+      <div class="icon-img">
+        <img :src="item.iconUrl" alt="图标">
+      </div>
+      <p class="icon-text">{{item.name}}</p>
+    </div>
   </div>
 </template>
 
@@ -19,9 +14,6 @@ export default {
   name: 'HomeIcon',
   data () {
     return {
-      swiperOption: {
-        pagination: '.swiper-pagination'
-      },
       iconList: [
         {id: '0001', name: '景点门票', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
         {id: '0002', name: '必玩景点', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png'},
@@ -30,31 +22,14 @@ export default {
         {id: '0005', name: '动植物园', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png'},
         {id: '0006', name: '故宫', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/6c/9e54a8540fee0102.png'},
         {id: '0007', name: '一日游', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png'},
-        {id: '0008', name: '汽车票', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/95/8d02011d149bdb02.png'},
-        {id: '0009', name: '游乐场', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png'},
-        {id: '0010', name: '全部玩乐', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/80/416c6ab3368d1f02.png'}
+        {id: '0008', name: '汽车票', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/95/8d02011d149bdb02.png'}
+        // {id: '0009', name: '游乐场', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png'},
+        // {id: '0010', name: '全部玩乐', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/80/416c6ab3368d1f02.png'}
       ]
     }
   },
-  computed: {
-    pages () {
-      let pages = []
-      this.iconList.forEach((item, index) => {
-        let page = Math.floor(index / 8)
-        if (!pages[page]) {
-          pages[page] = []
-        }
-        pages[page] && pages[page].push(item)
-        console.log(pages, item)
-      })
-      return pages
-    }
-  },
   mounted () {
-    console.log(this.pages)
-  },
-  created () {
-    console.log(this.pages)
+    console.log(this.iconList)
   }
 }
 </script>
@@ -65,9 +40,6 @@ export default {
     overflow: hidden
     height: 0
     padding-bottom: 50%
-
-    & >>> .swiper-container
-      width: 100%
 
     .icon
       position: relative

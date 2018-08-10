@@ -1,7 +1,7 @@
 <template>
   <div class="icons">
     <swiper>
-      <swiper-slide v-for="(page, index) of pages" :key="index" :options="swiperOption">
+      <swiper-slide v-for="(page, index) of page" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
             <img :src="item.iconUrl" alt="图标">
@@ -9,7 +9,6 @@
           <p class="icon-text">{{item.name}}</p>
         </div>
       </swiper-slide >
-      <div class="swiper-pagination"  slot="pagination"></div>
     </swiper>
   </div>
 </template>
@@ -19,9 +18,6 @@ export default {
   name: 'HomeIcon',
   data () {
     return {
-      swiperOption: {
-        pagination: '.swiper-pagination'
-      },
       iconList: [
         {id: '0001', name: '景点门票', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
         {id: '0002', name: '必玩景点', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png'},
@@ -42,10 +38,9 @@ export default {
       this.iconList.forEach((item, index) => {
         let page = Math.floor(index / 8)
         if (!pages[page]) {
-          pages[page] = []
+          pages = []
         }
         pages[page] && pages[page].push(item)
-        console.log(pages, item)
       })
       return pages
     }

@@ -20,7 +20,7 @@ export default {
   data () {
     return {
       swiperOption: {
-        pagination: '.swiper-pagination'
+        pagination: '.swiper-pagination',
       },
       iconList: [
         {id: '0001', name: '景点门票', iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png'},
